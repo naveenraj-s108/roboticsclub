@@ -53,13 +53,18 @@ router.put('/:id/status', protect, admin, async (req, res) => {
         const { status } = req.body;
         const application = await Application.findById(req.params.id);
 
-        if (application) {
-            application.status = status;
-            const updatedApplication = await application.save();
-            res.json(updatedApplication);
-        } else {
-            res.status(404).json({ message: 'Application not found' });
+        if (!application) {
+            return res.status(404).json({ message: 'Application not found' });
         }
+
+        if (status === 'rejected') {
+            await Application.findByIdAndDelete(req.params.id);
+            return res.json({ message: 'Application rejected and deleted successfully' });
+        }
+
+        application.status = status;
+        const updatedApplication = await application.save();
+        res.json(updatedApplication);
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
