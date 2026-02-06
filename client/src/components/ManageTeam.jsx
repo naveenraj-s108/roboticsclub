@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { BACKEND_URL } from '../services/api';
 
 const ManageTeam = () => {
     const [team, setTeam] = useState([]);
@@ -15,7 +16,7 @@ const ManageTeam = () => {
     const [loading, setLoading] = useState(false);
     const [message, setMessage] = useState('');
 
-    const API_URL = 'http://localhost:5000/api/team';
+    const API_URL = `${BACKEND_URL}/api/team`;
 
     useEffect(() => {
         fetchTeam();

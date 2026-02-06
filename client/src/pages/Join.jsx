@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { submitApplication } from '../services/api';
+import { submitApplication, BACKEND_URL } from '../services/api';
 import axios from 'axios';
 
 
@@ -44,7 +44,7 @@ const Join = () => {
         setStatusResult(null);
         setError('');
         try {
-            const { data } = await axios.get(`http://localhost:5000/api/applications/status/${checkId}`);
+            const { data } = await axios.get(`${BACKEND_URL}/api/applications/status/${checkId}`);
             setStatusResult(data);
         } catch (err) {
             setError(err.response?.data?.message || 'Application not found');

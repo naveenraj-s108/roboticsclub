@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { BACKEND_URL } from '../services/api';
 
 const About = () => {
     const [team, setTeam] = useState([]);
@@ -8,7 +9,7 @@ const About = () => {
     useEffect(() => {
         const fetchTeam = async () => {
             try {
-                const { data } = await axios.get('http://localhost:5000/api/team');
+                const { data } = await axios.get(`${BACKEND_URL}/api/team`);
                 setTeam(data);
             } catch (error) {
                 console.error('Error fetching team:', error);
