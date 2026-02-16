@@ -52,7 +52,7 @@ const Events = () => {
                             key={event._id}
                             className="group bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl border border-gray-100 transition-all duration-300 hover:-translate-y-2 flex flex-col"
                         >
-                            <div className={`relative h-56 overflow-hidden ${!event.imageUrl ? 'bg-indigo-600 flex items-center justify-center' : ''}`}>
+                            <div className={`relative h-56 overflow-hidden ${!event.imageUrl ? 'bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center' : ''}`}>
                                 {event.imageUrl ? (
                                     <img
                                         src={event.imageUrl.startsWith('http') ? optimizeImage(event.imageUrl, 'w_800,c_fill') : `${BACKEND_URL}${event.imageUrl}`}
@@ -60,8 +60,10 @@ const Events = () => {
                                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                                     />
                                 ) : (
-                                    <div className="text-white font-black text-4xl opacity-20 transform -rotate-12 select-none">
-                                        ROBOTICS
+                                    <div className="absolute inset-0 flex items-center justify-center">
+                                        <div className="text-white font-black text-4xl opacity-20 transform -rotate-12 select-none uppercase tracking-tighter">
+                                            Robotics
+                                        </div>
                                     </div>
                                 )}
                                 <div className={`absolute top-4 right-4 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest border backdrop-blur-md shadow-sm ${event.status === 'upcoming'
@@ -72,10 +74,10 @@ const Events = () => {
                                 </div>
                             </div>
                             <div className="p-8 flex-grow flex flex-col">
-                                <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-indigo-600 transition-colors leading-tight">{event.title}</h3>
+                                <h3 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-indigo-600 transition-colors leading-tight">{event.title}</h3>
 
                                 <div className="space-y-3 mb-6">
-                                    <div className="flex items-center text-gray-600 font-medium">
+                                    <div className="flex items-center text-slate-500 font-medium text-sm">
                                         <div className="p-2 bg-indigo-50 rounded-lg text-indigo-600 mr-3">
                                             <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
@@ -83,7 +85,7 @@ const Events = () => {
                                         </div>
                                         {new Date(event.date).toLocaleDateString(undefined, { dateStyle: 'long' })}
                                     </div>
-                                    <div className="flex items-center text-gray-600 font-medium">
+                                    <div className="flex items-center text-slate-500 font-medium text-sm">
                                         <div className="p-2 bg-indigo-50 rounded-lg text-indigo-600 mr-3">
                                             <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
@@ -94,11 +96,11 @@ const Events = () => {
                                     </div>
                                 </div>
 
-                                <p className="text-gray-500 text-sm leading-relaxed line-clamp-2 mb-8">{event.description}</p>
+                                <p className="text-slate-500 text-sm leading-relaxed line-clamp-2 mb-8">{event.description}</p>
 
-                                <div className="mt-auto pt-6 border-t border-gray-50 flex justify-between items-center">
-                                    <span className="text-indigo-600 font-extrabold text-sm uppercase tracking-wider group-hover:underline">View Details</span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-indigo-600 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <div className="mt-auto pt-6 border-t border-slate-50 flex justify-between items-center group/btn">
+                                    <span className="text-indigo-600 font-bold text-sm uppercase tracking-wider group-hover/btn:underline">Go to Event</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-indigo-600 transform group-hover/btn:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                                     </svg>
                                 </div>

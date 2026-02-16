@@ -30,20 +30,20 @@ const Home = () => {
     return (
         <div className="flex flex-col space-y-16 pb-20">
             {/* Hero Section */}
-            <section className="bg-indigo-900 text-white py-24 px-4 text-center">
+            <section className="bg-indigo-600 text-white py-24 px-4 text-center rounded-b-[3rem] shadow-lg">
                 <div className="max-w-4xl mx-auto">
-                    <h1 className="text-5xl md:text-6xl font-extrabold mb-6 leading-tight">
-                        Innovating the Future of <span className="text-indigo-300">Robotics</span>
+                    <h1 className="text-5xl md:text-7xl font-black mb-6 leading-tight tracking-tight">
+                        Building the <span className="text-indigo-200 italic">Future</span> of Robotics
                     </h1>
-                    <p className="text-xl text-indigo-100 mb-10 max-w-2xl mx-auto">
-                        Welcome to the Robotics Club. A community of engineers, creators, and innovators building the next generation of autonomous systems.
+                    <p className="text-xl text-indigo-100 mb-12 max-w-2xl mx-auto font-medium leading-relaxed">
+                        Welcome to the Robotics Club. A community of engineers, creators, and innovators shaping the next generation of autonomy.
                     </p>
-                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                        <Link to="/join" className="px-8 py-3 bg-white text-indigo-700 font-bold rounded-lg hover:bg-indigo-50 transition shadow-lg w-full sm:w-auto">
-                            Become a Member
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
+                        <Link to="/join" className="px-10 py-4 bg-white text-indigo-700 font-black rounded-2xl hover:bg-slate-50 transition-all shadow-xl hover:-translate-y-1 w-full sm:w-auto">
+                            Apply for Membership
                         </Link>
-                        <Link to="/events" className="px-8 py-3 bg-indigo-800 text-white font-bold rounded-lg hover:bg-indigo-700 border border-indigo-600 transition w-full sm:w-auto">
-                            View Our Events
+                        <Link to="/events" className="px-10 py-4 bg-indigo-500 text-white font-black rounded-2xl hover:bg-indigo-400 border border-indigo-400/30 transition-all shadow-xl hover:-translate-y-1 w-full sm:w-auto">
+                            Explore Events
                         </Link>
                     </div>
                 </div>
