@@ -130,7 +130,7 @@ const Join = () => {
                             </div>
                             {statusResult.status === 'approved' && (
                                 <p className="mt-4 text-emerald-400/80 text-sm font-medium">
-                                    ✨ Welcome to the club! Please visit the dashboard or contact us for orientation details.
+                                    ✨ Welcome to the club! Please visit the dashboard or <a href="mailto:roboticsclubrgcet@gmail.com" className="underline hover:text-white transition-colors">contact us</a> for orientation details.
                                 </p>
                             )}
                         </div>

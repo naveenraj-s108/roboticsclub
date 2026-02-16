@@ -131,12 +131,13 @@ const EventDetails = () => {
 
                         <div className="p-8 border border-slate-100 rounded-[2rem] text-center bg-slate-50">
                             <p className="text-[10px] text-slate-400 font-black uppercase tracking-widest mb-3">Questions about this event?</p>
-                            <a href="mailto:roboticsclubrgcet@gmail.com" className="text-indigo-600 font-black text-sm hover:underline flex items-center justify-center gap-2">
+                            <a href="mailto:roboticsclubrgcet@gmail.com" className="text-indigo-600 font-black text-sm hover:underline flex items-center justify-center gap-2 mb-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                                 </svg>
                                 Contact Us
                             </a>
+                            <p className="text-[10px] text-indigo-400/60 font-medium">roboticsclubrgcet@gmail.com</p>
                         </div>
                     </div>
                 </div>
