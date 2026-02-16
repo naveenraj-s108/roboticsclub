@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const path = require('path');
 const cors = require('cors');
+const compression = require('compression');
 const connectDB = require('./config/db');
 const announcementRoutes = require('./routes/announcementRoutes');
 const authRoutes = require('./routes/authRoutes');
@@ -27,6 +28,7 @@ app.use(cors({
     origin: process.env.FRONTEND_URL || 'http://localhost:5173',
     credentials: true
 }));
+app.use(compression());
 app.use(express.json());
 app.use('/uploads', express.static(path.join(__dirname, '/uploads')));
 

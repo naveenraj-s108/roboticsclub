@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { BACKEND_URL } from '../services/api';
+import { optimizeImage } from '../utils/performance';
 
 const About = () => {
     const [team, setTeam] = useState([]);
@@ -83,7 +84,7 @@ const About = () => {
                                     <div className="relative aspect-[4/5] overflow-hidden">
                                         {member.imageUrl ? (
                                             <img
-                                                src={member.imageUrl}
+                                                src={optimizeImage(member.imageUrl, 'w_400,c_fill')}
                                                 alt={member.name}
                                                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                                             />

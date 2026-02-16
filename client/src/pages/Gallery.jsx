@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { fetchGallery } from '../services/api';
 import { BACKEND_URL } from '../services/api';
+import { optimizeImage } from '../utils/performance';
 
 const Gallery = () => {
     const [images, setImages] = useState([]);
@@ -46,7 +47,7 @@ const Gallery = () => {
                             className="relative aspect-square group overflow-hidden rounded-3xl bg-white shadow-sm hover:shadow-xl border border-gray-100 transition-all duration-300 hover:-translate-y-2"
                         >
                             <img
-                                src={image.imageUrl && image.imageUrl.startsWith('http') ? image.imageUrl : `${BACKEND_URL}${image.imageUrl}`}
+                                src={image.imageUrl && image.imageUrl.startsWith('http') ? optimizeImage(image.imageUrl, 'w_600,c_fill') : `${BACKEND_URL}${image.imageUrl}`}
                                 alt="Gallery"
                                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                             />

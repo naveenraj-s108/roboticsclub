@@ -9,16 +9,19 @@ const Home = () => {
     useEffect(() => {
         const loadData = async () => {
             try {
-                const eventsRes = await fetchEvents();
-                if (eventsRes.data.length > 0) {
+                const [eventsRes, announcementsRes] = await Promise.all([
+                    fetchEvents().catch(err => { console.error('Error fetching events:', err); return { data: [] }; }),
+                    fetchAnnouncements().catch(err => { console.error('Error fetching announcements:', err); return { data: [] }; })
+                ]);
+
+                if (eventsRes.data && eventsRes.data.length > 0) {
                     setLatestEvent(eventsRes.data[0]);
                 }
-                const announcementsRes = await fetchAnnouncements();
-                if (announcementsRes.data.length > 0) {
+                if (announcementsRes.data && announcementsRes.data.length > 0) {
                     setLatestAnnouncement(announcementsRes.data[0]);
                 }
             } catch (err) {
-                console.error('Error loading home data:', err);
+                console.error('Unexpected error loading home data:', err);
             }
         };
         loadData();

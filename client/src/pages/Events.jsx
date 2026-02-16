@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { fetchEvents } from '../services/api';
 import { BACKEND_URL } from '../services/api';
+import { optimizeImage } from '../utils/performance';
 
 const Events = () => {
     const [events, setEvents] = useState([]);
@@ -54,7 +55,7 @@ const Events = () => {
                             <div className={`relative h-56 overflow-hidden ${!event.imageUrl ? 'bg-indigo-600 flex items-center justify-center' : ''}`}>
                                 {event.imageUrl ? (
                                     <img
-                                        src={event.imageUrl.startsWith('http') ? event.imageUrl : `${BACKEND_URL}${event.imageUrl}`}
+                                        src={event.imageUrl.startsWith('http') ? optimizeImage(event.imageUrl, 'w_800,c_fill') : `${BACKEND_URL}${event.imageUrl}`}
                                         alt={event.title}
                                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                                     />
